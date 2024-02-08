@@ -36,6 +36,9 @@ $router->get('/crear-proyecto', [Dashboardcontroller::class, 'crear_proyecto']);
 $router->post('/crear-proyecto', [Dashboardcontroller::class, 'crear_proyecto']);
 $router->get('/proyecto', [Dashboardcontroller::class, 'proyecto']);
 $router->get('/perfil', [Dashboardcontroller::class, 'perfil']);
+$router->post('/perfil', [Dashboardcontroller::class, 'perfil']);
+$router->get('/cambiar-password', [Dashboardcontroller::class, 'cambiar_password']);
+$router->post('/cambiar-password', [Dashboardcontroller::class, 'cambiar_password']);
 
 // API para las tareas
 $router->get('/api/tareas', [TareaController::class, 'index']);

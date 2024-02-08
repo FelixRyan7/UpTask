@@ -14,6 +14,8 @@ class Usuario extends ActiveRecord{
         $this->email = $args['email'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->password2 = $args['password2'] ?? '';
+        $this->password_actual = $args['password_actual'] ?? '';
+        $this->password_nuevo = $args['password_nuevo'] ?? '';
         $this->token = $args['token'] ?? '';
         $this->confirmado = $args['confirmado'] ?? 0;
     }
@@ -29,6 +31,16 @@ class Usuario extends ActiveRecord{
         }
         if(!$this->password){
             self::$alertas['errores'] [] = 'La contraseña no puede ir vacia';
+        }
+        return self::$alertas;
+    }
+
+    public function validar_perfil(){
+        if(!$this->nombre){
+            self::$alertas['errores'][] = 'El Nombre es Obligatorio';
+        }
+        if(!$this->email){
+            self::$alertas['errores'][] = 'El Email es Obligatorio';
         }
         return self::$alertas;
     }
@@ -83,4 +95,20 @@ class Usuario extends ActiveRecord{
         $this->token = uniqid();
     }
 
+    public function nuevo_password(){
+        if(!$this->password_actual){
+            self::$alertas['errores'][] = 'La contraseña actual no puede ir vacia';
+        }
+        if(!$this->password_nuevo && $this->password_actual){
+            self::$alertas['errores'][] = 'La contraseña nueva no puede ir vacia';
+        }
+        if($this->password_nuevo && strlen($this->password_nuevo) < 6 && $this->password_actual){
+            self::$alertas['errores'][] = 'La contraseña nueva debe tener mas de 6 caracteres';
+        }
+        return self::$alertas;
+    }
+
+    public function comprobar_password(){
+        return password_verify($this->password_actual, $this->password);
+    }
 }
