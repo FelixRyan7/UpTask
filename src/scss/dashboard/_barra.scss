@@ -1,0 +1,65 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.barra-mobile{
+    background: linear-gradient(to bottom, #6157ff, #EE49FD, #6157ff);
+    padding:2rem 4rem;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    @include m.tablet {
+        display:none
+    }
+    h1{
+        color: v.$blanco;
+        margin:0;
+        font-size:2.5rem;
+    }
+}
+
+
+
+.menu{
+    img{
+        width: .8rem;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+.barra{
+    
+    display:none;
+    @include m.tablet {
+        background-color: v.$blanco;
+    padding: 1rem 2rem;
+    box-shadow: 1px 12px 9px -13px rgb(0, 0, 0, .4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+    
+    
+    @include m.max-tablet {
+        .cerrar-sesion{
+            max-width: 10rem;
+        }
+       
+    }
+    p{
+        margin:0;
+        font-size:1.4rem;
+
+        span{
+            font-weight: 700;
+            color: v.$indigo;
+        }
+    }
+
+    .cerrar-sesion{
+        
+        @include m.boton(darken(#6157ff, 3%), v.$blanco);
+           
+    }
+}

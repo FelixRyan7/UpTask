@@ -1,0 +1,40 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.dashboard{
+    background-color: v.$grisClaro;
+    
+
+    @include m.tablet {
+        display: flex;
+        height: 100vh;
+        
+        
+    }
+    .principal{
+        flex:1;
+        overflow:scroll;
+    }
+    
+    .contenido{
+        padding:2rem;
+        .nombre-pagina{
+            font-size:2.8rem;
+            text-align: center;
+        }
+    }
+
+    .boton-formulario-modal{
+        background: #EE49FD;
+        transition: background-color 0.3s ease;
+        &:hover {
+        background-color: #c63bd3; /* Color rosa más oscuro */
+      }
+    }
+    .boton-formulario{
+        @include m.boton(darken(#e757ea, 3%), v.$blanco);
+        
+      
+    }
+    
+}

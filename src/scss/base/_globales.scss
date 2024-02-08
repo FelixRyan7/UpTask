@@ -1,0 +1,59 @@
+@use 'variables' as v;
+@use 'mixins' as m;
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+}
+body {
+    font-family: v.$fuente_textos;
+    font-size: 1.6rem;
+    
+    /* background: linear-gradient(to bottom, #ff4066, #FFF16A); gradiente extra*/
+            /* background: linear-gradient(to right, #6157ff, #EE49FD);  gradiente extra*/ 
+            margin: 0; /* Elimina el margen predeterminado del body */
+            min-height: 100vh; /* Asegura que el fondo cubra toda la altura de la pantalla */
+          
+          
+}
+.paginas-principales{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include m.tablet {
+                padding: 5rem;
+                
+            }
+            padding-top:2rem;
+            height: 80vh;
+            
+            
+            
+}
+
+
+.fondo-principal{
+    background: linear-gradient(to right, #2DFFF5, #fff878);
+    padding-top:8rem;
+    padding-bottom: 4rem;
+    margin:0;
+    
+}
+
+
+
+
+
+a {
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+
+
+

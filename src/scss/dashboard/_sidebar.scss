@@ -1,0 +1,108 @@
+@use 'base/mixins' as m;
+@use 'base/variables' as v;
+
+.sidebar{
+    opacity: 0;
+    background: linear-gradient(to bottom, #6157ff, #EE49FD, #6157ff);
+    height: 0;
+    overflow: hidden;
+    transition-property: opacity;
+    transition-duration: 500ms;
+    
+    &.mostrar{
+        display: block;
+        padding: 2rem;
+        height: 100%;
+        opacity: .95;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom:0;
+        
+        @include m.tablet {
+            display: none;
+        }
+    }
+    &.ocultar{
+        opacity:0;
+    }
+    
+    @include m.max-tablet {
+        display:none;
+    }
+
+    @include m.tablet {
+        height: 100%;
+        opacity:1;
+        padding:2rem;
+    }
+    
+    .contenedor-sidebar{
+        display:flex;
+        justify-content: space-between;
+        align-items:center;
+        h1{
+            @include m.telefono {
+                font-size:6rem;
+            }
+            font-size: 3rem;
+            color: v.$blanco;
+            margin:0;
+            text-align: center;
+        }
+        
+
+        .cerrar-menu{
+            display:flex;
+            justify-content:center;
+            height:3.4rem;
+            width:3.4rem;
+            cursor:pointer;
+            @include m.tablet {
+                display: none;
+            }
+        }
+    }
+    
+    .sidebar-nav{
+        margin-top:4rem;
+
+        a{
+            color: v.$blanco;
+            display:block;
+            margin-bottom: 2.5rem;
+            padding: .7rem;
+            transition-property: background-color;
+            transition-duration: 300ms;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 2.2rem;
+            text-align: center;
+
+            &:hover,
+            &.activo {
+                background-color: darken(v.$indigo, 12%);
+                border-radius: .5rem;
+            }
+
+            @include m.tablet {
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+                text-align: left;
+            }
+        }
+    }
+
+    .cerrar-sesion-mobile{
+        margin-top: 8rem;
+        .cerrar-sesion{
+            @include m.boton(v.$indigo, v.$blanco);
+            padding:1.5rem;
+        }
+
+        @include m.tablet {
+            display:none;
+        }
+    }
+}

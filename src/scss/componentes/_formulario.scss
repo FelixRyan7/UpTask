@@ -1,0 +1,59 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+/* Agrega un fondo translúcido al formulario */
+.formulario {
+    padding: 20px; /* Ajusta el relleno según sea necesario */
+    border-radius: 20px; /* Añade esquinas redondeadas para un aspecto más suave */
+    
+}
+
+.formulario input {
+    border:none;
+    padding:1rem;
+    background-color: rgba(0, 0, 0, 0.05); /* Fondo translúcido blanco para los campos de entrada */
+}
+.formulario input:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Cambia el color de fondo al hacer hover */
+    border:none;
+    padding:1rem;
+}
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+
+
+
+.contenedor-sm {
+    
+    @include m.tablet {
+        width:85%;
+    }
+    @include m.desktop {
+        width:70%;
+    }
+    margin: 0 auto;
+       
+}
+
+.uptask{
+    background: linear-gradient(to right, #2DFFF5, #fff878);
+    color:transparent;
+    background-clip:text;
+}
+
+.formulario-registrar{
+    background: linear-gradient(to left, #2DFFF5, #fff878);
+}
+
+.navbar-nav .nav-link {
+    transition: font-weight 0.3s ease-in-out; /* Agregar transición a font-weight */
+}
+
+.navbar-nav .nav-link:hover {
+    font-weight: bold; /* Ajustar el grosor del texto en hover */
+}
+
